@@ -1,0 +1,16 @@
+<ion-card>
+    <ion-card-content>
+        <ion-img src="{{ productImg }}"> </ion-img>
+        <h4><b>{{ productName }}</b></h4>
+        <p>{{ productPrice }}</p>
+        <p>Rp. {{ netPrice }}</p>
+        <p>Voucher {{ kodeVoucher }} akan dipakai</p>
+    </ion-card-content>
+</ion-card>
+
+<ion-item>
+    <ion-label position="floating">Kode Voucher</ion-label>
+    <ion-input (input)="checkVoucher($event)" [(ngModel)] = "kodeVoucher"></ion-input>
+</ion-item>
+
+<ion-button [color]="btnColor" [disabled]="btnDisable" (click)="applyDiscount()">Apply Discount</ion-button>
