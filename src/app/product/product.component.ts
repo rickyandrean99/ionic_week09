@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'
+import { ProductService } from '../product.service'
 
 @Component({
     selector: 'app-product',
@@ -13,49 +14,7 @@ export class ProductComponent implements OnInit {
     btnColor = 'primary'
     netPrice: number = this.productPrice
     fontSize: number = 12
-
-    products = [
-        { 
-            name: 'Realme 5',
-            price: 1800000,
-            disc: 0.1,
-            url: 'realme_5.jpg',
-            spec: ['4 GB RAM', 'Qualcomm SDM665 Snapdragon 665', '128 GB Storage'],
-            open: false
-        },
-        {
-            name: 'OPPO A1',
-            price: 1400000,
-            disc: 0.15,
-            url: 'oppo_a1.jpg',
-            spec: ['4 GB RAM','Mediatek MT6763T Helio P23','64 GB Storage'],
-            open: false
-        },
-        { 
-            name: 'Samsung Galaxy S10', 
-            price: 1200000,
-            disc: 0, 
-            url: 'samsung10.jpg',
-            spec: ['8 GB RAM','Exynos 9820','512 GB Storage'],
-            open: false
-        },
-        { 
-            name: 'Redmi Note 8', 
-            price: 1900000,
-            disc: 0.2, 
-            url: 'redmi_note_8.jpg',
-            spec: ['6 GB RAM','Qualcomm SDM665 Snapdragon 665','128 GB Storage'],
-            open: false
-        },
-        { 
-            name: 'Iphone X', 
-            price: 6300000, 
-            disc: 0.25, 
-            url: 'iphone_x.jpg',
-            spec: ['3 GB RAM','Apple A11 Bionic','256 GB Storage'],
-            open: false
-        }
-    ]
+    products = []
 
     showClick(index: number) {
         if (this.products[index].open)
@@ -78,7 +37,9 @@ export class ProductComponent implements OnInit {
         return this.productPrice * 0.8
     }
 
-    constructor() { }
+    constructor(public ps:ProductService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.products = this.ps.productsPhone
+    }
 }

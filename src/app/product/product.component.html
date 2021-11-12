@@ -9,22 +9,12 @@
         <h4 [ngStyle]="{'font-size': fontSize + 'pt'}"><b>{{ product.name }}</b></h4>
         <p [ngStyle]="{'font-size': fontSize + 'pt'}" *ngIf="product.disc>0"><s>Rp. {{product.price}}</s></p>
         <p [ngStyle]="{'font-size': fontSize + 'pt'}">Rp. {{ product.price - (product.price * product.disc) }}</p>
-        <!-- <p [ngStyle]="{'color':'red', 'font-weight':'bold', 'font-size': fontSize + 'pt'}" *ngIf="netPrice != productPrice"><s>Rp. {{ productPrice }}</s></p>
-        <p [ngStyle]="{'font-size': fontSize + 'pt'}">Rp. {{ netPrice }}</p>
-        <p *ngIf="kodeVoucher">Voucher {{ kodeVoucher }} akan dipakai</p> -->
-        <ion-button [ngStyle]="{'margin':'1rem 0'}" (click)="showClick(i)">Show More</ion-button>
+        <ion-button [ngStyle]="{'margin':'1rem 1rem 1rem 0'}" (click)="showClick(i)">Show More</ion-button>
+        <ion-button color='warning' routerLink='/detail/{{i}}'>See Detail</ion-button>
         <ion-list *ngIf="product.open">
             <ion-item *ngFor="let sp of product.spec; let j = index">
                 {{ sp }}
             </ion-item>
         </ion-list>
     </ion-card-content>
-
-    <!-- <ion-item>
-        <ion-label position="floating">Kode Voucher</ion-label>
-        <ion-input (input)="checkVoucher($event)" [(ngModel)] = "kodeVoucher"></ion-input>
-    </ion-item> -->
-    
-    <!-- <ion-button [color]="btnColor" [disabled]="btnDisable" (click)="applyDiscount()">Apply Discount</ion-button> -->
 </ion-card>
-

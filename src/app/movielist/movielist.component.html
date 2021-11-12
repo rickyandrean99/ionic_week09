@@ -1,0 +1,6 @@
+<ion-card *ngFor="let movie of movies; let i = index" [ngStyle]="{'margin-bottom':'1rem'}">
+    <ion-card-content>
+        <h1 [ngStyle]="{'margin':'1rem 0 1.5rem'}" routerLink='/moviedetail/{{i}}'><b>{{ movie.judul }}</b></h1>
+        <ion-img src="{{ movie.poster }}" [ngStyle]="{'margin':'1rem 0'}"></ion-img>
+    </ion-card-content>
+</ion-card>
