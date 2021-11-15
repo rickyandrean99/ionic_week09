@@ -2,6 +2,11 @@
 <ion-button size="small" (click)="fontSize=fontSize+1">+</ion-button>
 <ion-button size="small" (click)="fontSize=fontSize-1">-</ion-button> -->
 
+<!-- <h1>{{ json }}</h1>
+<ion-button (click)="listProduct()">Get Product</ion-button> -->
+
+<app-productform></app-productform>
+
 <ion-card *ngFor="let product of products; let i = index">
     <ion-card-content>
         <ion-chip>{{ i+1 }}</ion-chip>
@@ -9,12 +14,12 @@
         <h4 [ngStyle]="{'font-size': fontSize + 'pt'}"><b>{{ product.name }}</b></h4>
         <p [ngStyle]="{'font-size': fontSize + 'pt'}" *ngIf="product.disc>0"><s>Rp. {{product.price}}</s></p>
         <p [ngStyle]="{'font-size': fontSize + 'pt'}">Rp. {{ product.price - (product.price * product.disc) }}</p>
-        <ion-button [ngStyle]="{'margin':'1rem 1rem 1rem 0'}" (click)="showClick(i)">Show More</ion-button>
-        <ion-button color='warning' routerLink='/detail/{{i}}'>See Detail</ion-button>
-        <ion-list *ngIf="product.open">
+        <!-- <ion-button [ngStyle]="{'margin':'1rem 1rem 1rem 0'}" (click)="showClick(i)">Show More</ion-button> -->
+        <ion-button color='warning' routerLink='/detail/{{i+1}}'>See Detail</ion-button>
+        <!-- <ion-list *ngIf="product.open">
             <ion-item *ngFor="let sp of product.spec; let j = index">
                 {{ sp }}
             </ion-item>
-        </ion-list>
+        </ion-list> -->
     </ion-card-content>
 </ion-card>

@@ -15,19 +15,22 @@ import { Routes, RouterModule } from '@angular/router'
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { MovielistComponent } from './movielist/movielist.component';
 import { MoviedetailComponent } from './moviedetail/moviedetail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductformComponent } from './productform/productform.component';
 
 const appRoutes: Routes = [
     {path:'product', component: ProductComponent},
     {path:'detail/:id', component: ProductdetailComponent},
     {path:'covid', component: CegahcovidComponent},
     {path:'movielist', component: MovielistComponent},
-    {path:'moviedetail/:id', component: MoviedetailComponent}
+    {path:'moviedetail/:id', component: MoviedetailComponent},
+    // {path:'newproduct', component: ProductformComponent}
 ]
 
 @NgModule({
-  declarations: [AppComponent, TglhariiniComponent, ProductComponent, CegahcovidComponent, ProductdetailComponent, MovielistComponent, MoviedetailComponent],
+  declarations: [AppComponent, TglhariiniComponent, ProductComponent, CegahcovidComponent, ProductdetailComponent, MovielistComponent, MoviedetailComponent, ProductformComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  imports: [HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ProductService],
   bootstrap: [AppComponent],
 })

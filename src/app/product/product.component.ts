@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
     netPrice: number = this.productPrice
     fontSize: number = 12
     products = []
+    json: string = '...Menunggu dari Observable'
 
     showClick(index: number) {
         if (this.products[index].open)
@@ -37,9 +38,18 @@ export class ProductComponent implements OnInit {
         return this.productPrice * 0.8
     }
 
+    listProduct() {
+        this.ps.productList().subscribe(
+            (data) => {
+                this.products = data
+            }
+        )
+    }  
+
     constructor(public ps:ProductService) { }
 
     ngOnInit() {
-        this.products = this.ps.productsPhone
+        // this.products = this.ps.productsPhone
+        this.listProduct()
     }
 }

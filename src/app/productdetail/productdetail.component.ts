@@ -13,17 +13,24 @@ export class ProductdetailComponent implements OnInit {
     price: number = 0
     url: string = ''
     desc: string = ''
+    id: number = undefined
 
     constructor(public ps: ProductService, public route: ActivatedRoute) { }
 
-    ngOnInit() {
-        var id: number = this.route.snapshot.params['id']
-        var pm: ProductModel = this.ps.productsPhone[id]
+    getProductDetail() {
+        this.ps.productDetail(this.id).subscribe(
+            (data) => {
+                this.name = data.name
+                this.price = data.price
+                this.url = data.url
+                this.desc = data.desc
+            }
+        )
+    }
 
-        this.name = pm.name
-        this.price = pm.price
-        this.url = pm.url
-        this.desc = pm.desc
+    ngOnInit() {
+        this.id = this.route.snapshot.params['id']
+        this.getProductDetail()
     }
 
 }
