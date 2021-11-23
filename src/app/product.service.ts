@@ -9,12 +9,12 @@ import { HttpParams } from '@angular/common/http'
 })
 export class ProductService {
     productList(): Observable<any> {
-        return this.http.get("http://localhost/Hybrid%20Mobile%20Programming/ionicangular/products.php")
+        return this.http.get("http://ubaya.fun/hybrid/160419076/product_api/products.php")
     }
 
     productDetail(id: number): Observable<any> {
         let param = new HttpParams().append('id', id)
-        return this.http.get("http://localhost/Hybrid%20Mobile%20Programming/ionicangular/product_detail.php", { params: param })
+        return this.http.get("http://ubaya.fun/hybrid/160419076/product_api/product_detail.php", { params: param })
     }
 
     newProduct(name: string, price: number, disc: number, url: string, desc: string): Observable<any> {
@@ -25,7 +25,7 @@ export class ProductService {
         body = body.set('url', url)
         body = body.set('desc', desc)
 
-        return this.http.post("http://localhost/Hybrid%20Mobile%20Programming/ionicangular/addproduct.php", body);
+        return this.http.post("http://ubaya.fun/hybrid/160419076/product_api/addproduct.php", body);
     }
 
     constructor(private http: HttpClient) { }

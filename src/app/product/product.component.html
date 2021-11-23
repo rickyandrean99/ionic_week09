@@ -10,7 +10,7 @@
 <ion-card *ngFor="let product of products; let i = index">
     <ion-card-content>
         <ion-chip>{{ i+1 }}</ion-chip>
-        <ion-img src="../assets/img/{{ product.url }}" [ngStyle]="{'margin':'1rem 0 1.5rem'}"></ion-img>
+        <ion-img src="http://ubaya.fun/hybrid/160419076/product_api/images/{{ product.url }}" [ngStyle]="{'margin':'1rem 0 1.5rem'}"></ion-img>
         <h4 [ngStyle]="{'font-size': fontSize + 'pt'}"><b>{{ product.name }}</b></h4>
         <p [ngStyle]="{'font-size': fontSize + 'pt'}" *ngIf="product.disc>0"><s>Rp. {{product.price}}</s></p>
         <p [ngStyle]="{'font-size': fontSize + 'pt'}">Rp. {{ product.price - (product.price * product.disc) }}</p>
